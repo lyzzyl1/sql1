@@ -16,9 +16,7 @@ def init_connection() -> Client:
     url = "https://fmritvcqvyhdxdjzxykl.supabase.co"  # 从图片获取的项目URL
     key = "sb_publishable_U9V_dTYIVHT6sa15IzOL1A_ql-_D7AW"  # 需要在Supabase设置->API中找到
     
-    # 如果在Posit Connect Cloud部署，取消下面代码的注释：
-    url = os.environ.get("SUPABASE_URL", "https://fmritvcqvyhdxdjzxykl.supabase.co")
-    key = os.environ.get("SUPABASE_KEY", "sb_publishable_U9V_dTYIVHT6sa15IzOL1A_ql-_D7AW")
+
     
     if not url or not key:
         st.error("请配置Supabase连接信息！")
@@ -154,4 +152,5 @@ with col_submit:
 if submit_button:
     if save_simulation_data_to_supabase(user_name,answer,st.session_state.history):
         st.success("✅ 数据已成功保存到后台！")
+
 
