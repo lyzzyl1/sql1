@@ -42,7 +42,7 @@ def save_simulation_data_to_supabase(user_name, answer, history):
         data = {
             "user_name": user_name,
             "answer": answer,
-            "history_data": json.dumps(history, ensure_ascii=False)
+            "history_data": history.to_json(orient="records", force_ascii=False)
         }
         
         response = supabase.table("simulation_records").insert(data).execute()
@@ -154,5 +154,6 @@ with col_submit:
 if submit_button:
     if save_simulation_data_to_supabase(user_name,answer,st.session_state.history):
         st.success("✅ 数据已成功保存到后台！")
+
 
 
