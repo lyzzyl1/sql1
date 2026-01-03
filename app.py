@@ -14,7 +14,8 @@ def init_connection() -> Client:
     """创建Supabase客户端"""
     # 🔥 修改这里的值为您的实际值！ 🔥
     url = "https://fmritvcqvyhdxdjzxykl.supabase.co"  # 从图片获取的项目URL
-    key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtcml0dmNxdnloZHhkanp4eWtsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NzM2MzU1OCwiZXhwIjoyMDgyOTM5NTU4fQ.7oer9psAEBQdkbNJmiI6C5fthH-Np3tO5-xK1D7kLP8"  # 需要在Supabase设置->API中找到
+    key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtcml0dmNxdnloZHhkanp4eWtsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjczNjM1NTgsImV4cCI6MjA4MjkzOTU1OH0.3OVFc8Pr2ANx7MNB6NXaXUbmIjJ0xc4pTyLlnKcf1KA" 
+    # 需要在Supabase设置->API中找到
 
     url = os.environ.get("SUPABASE_URL", url)
     key = os.environ.get("SUPABASE_KEY", key)
@@ -155,6 +156,7 @@ with col_submit:
 if submit_button:
     if save_simulation_data_to_supabase(user_name,answer,st.session_state.history):
         st.success("✅ 数据已成功保存到后台！")
+
 
 
 
