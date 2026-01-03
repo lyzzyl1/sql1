@@ -147,11 +147,12 @@ with col2:
 st.divider()
 st.header("💾 数据提交")
 
-col_submit3 = st.columns([1, 1, 1])
+col_submit1,col_submit3,col_submit2 = st.columns([1, 1, 1])
 with col_submit3:
     submit_button = st.button("✅ 提交答案",  type="primary",)
     # 处理提交按钮点击
 if submit_button:
     if save_simulation_data_to_supabase():
         st.success("✅ 数据已成功保存到后台！")
+
 
